@@ -16,6 +16,11 @@ Estos serán algunos de los ejemplos que usaré en la asignatura de Cloud Comput
 
 [05 - Background option](Containers/05-background.md)
 
+[06 - Expose Ports option](Containers/06-expose-ports.md)
+
+[07 - Environment options](Containers/07-environment.md)
+
+
 ## Orquestadores
 
 ## APIs 
