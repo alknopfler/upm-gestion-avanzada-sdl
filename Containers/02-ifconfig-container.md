@@ -1,5 +1,7 @@
 ## 02 - ifconfig container
 
+The `ifconfig` command is used to configure network interfaces. In this example we will use the `ifconfig` command to see the network configuration of the container. For sure, we could use the command we want, but we will use `ifconfig` because it is a very common command and it is easy to understand.
+
 ```shell
 ┌─ alknopfler[alkmini.localdomain]:~
 └──> docker run alpine ifconfig
