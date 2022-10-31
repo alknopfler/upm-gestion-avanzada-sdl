@@ -20,6 +20,14 @@ Estos serán algunos de los ejemplos que usaré en la asignatura de Cloud Comput
 
 [07 - Environment options](Containers/07-environment.md)
 
+[08 - Volumes](Containers/08-volumes.md)
+
+[09 - Nginx Personalizado desde CLI](Containers/09-nginx-personalizado-cli.md)
+
+
+
+
+
 
 ## Orquestadores
 
