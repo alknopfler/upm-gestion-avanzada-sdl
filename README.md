@@ -6,10 +6,15 @@ Estos serán algunos de los ejemplos que usaré en la asignatura de Cloud Comput
 
 ## Containers
 
-[01-hello-world](Containers/01-hello-world.md)
+[01 - hello-world](Containers/01-hello-world.md)
 
-[02-ifconfig-container](Containers/02-ifconfig-container.md)
+[02 - ifconfig container](Containers/02-ifconfig-container.md)
 
+[03 - interactive option](Containers/03-interactive-option.md)
+
+[04 - name and rm option](Containers/04-name-and-rm.md)
+
+[05 - Background option](Containers/05-background.md)
 
 ## Orquestadores
 
