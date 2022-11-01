@@ -24,8 +24,7 @@ Estos serán algunos de los ejemplos que usaré en la asignatura de Cloud Comput
 
 [09 - Nginx Personalizado desde CLI](Containers/09-nginx-personalizado-cli.md)
 
-
-
+[10 - Nginx Personalizado desde Dockerfile](Containers/10-nginx-dockerfile-comparation.md)
 
 
 
