@@ -7,6 +7,7 @@ import (
 )
 
 // main to create the api with gorilla mux router and start the server
+
 func main() {
 
 	router := mux.NewRouter()

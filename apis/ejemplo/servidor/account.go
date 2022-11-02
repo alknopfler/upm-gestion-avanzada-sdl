@@ -1,49 +1,54 @@
 package main
 
-/*
-Account is the struct for the account with the next attributes:
-
-	ID is the id of the account
-	Name is the name of the account
-	Balance is the balance of the account
-	Currency is the currency of the account
-	Owner is the owner of the account
-	CreatedAt is the date of creation of the account
-	UpdatedAt is the date of update of the account
-	DeletedAt is the date of deletion of the account
-*/
+// swagger:model Account
 type Account struct {
-	ID        string `json:"id"`
-	Name      string `json:"name"`
-	Balance   int    `json:"balance"`
-	Currency  string `json:"currency"`
-	Owner     string `json:"owner"`
+	// The id of an account
+	// example: 6204037c-30e6-408b-8aaa-dd8219860b4b
+	ID string `json:"id"`
+	// The name of an account
+	// example: account1
+	Name string `json:"name"`
+	// The balance of an account
+	// example: 100
+	Balance int `json:"balance"`
+	// The currency of an account
+	// example: EUR
+	Currency string `json:"currency"`
+	// The owner of an account
+	// example: owner1
+	Owner string `json:"owner"`
+	// The date of creation of an account
+	// example: 2019-01-01T00:00:00Z
 	CreatedAt string `json:"created_at"`
+	// The date of update of an account
+	// example: 2019-01-01T00:00:00Z
 	UpdatedAt string `json:"updated_at"`
+	// The date of deletion of an account
+	// example: 2019-01-01T00:00:00Z
 	DeletedAt string `json:"deleted_at"`
 }
 
+// swagger:model ListAccount
 type ListAccount struct {
+	// The list of accounts
 	List []Account
 }
 
-/*
-InputAccount is the struct received in json to create an account with the next structure:
-
-	ID is the id of the account
-	Name is the name of the account
-	Balance is the balance of the account
-	Currency is the currency of the account
-	Owner is the owner of the account
-*/
+// swagger:parameters create-account
 type InputAccount struct {
-	Name     string `json:"name"`
-	Balance  int    `json:"balance"`
+	// in:body
+	Name string `json:"name"`
+	// in:body
+	Balance int `json:"balance"`
+	// in:body
 	Currency string `json:"currency"`
-	Owner    string `json:"owner"`
+	// in:body
+	Owner string `json:"owner"`
 }
 
+// swagger:model Balance
 type Balance struct {
+	// The balance of an account
 	Balance int `json:"balance"`
 }
 
