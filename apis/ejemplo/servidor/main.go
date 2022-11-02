@@ -11,11 +11,11 @@ func main() {
 
 	router := mux.NewRouter()
 	router.HandleFunc("/api/v1/accounts", getAccounts).Methods("GET")
-	router.HandleFunc("/api/v1/account/{id}", getAccount).Methods("GET")
+	//router.HandleFunc("/api/v1/account/{id}", getAccount).Methods("GET")
 	router.HandleFunc("/api/v1/account", createAccount).Methods("POST")
-	router.HandleFunc("/api/v1/account/{id}/balance", createAccountBalance).Methods("POST")
-	router.HandleFunc("/api/v1/account/{id}/balance", getAccountBalance).Methods("GET")
-	router.HandleFunc("/api/v1/account/{id}", deleteAccount).Methods("DELETE")
+	//router.HandleFunc("/api/v1/account/{id}/balance", createAccountBalance).Methods("POST")
+	//router.HandleFunc("/api/v1/account/{id}/balance", getAccountBalance).Methods("GET")
+	//router.HandleFunc("/api/v1/account/{id}", deleteAccount).Methods("DELETE")
 
 	// start the server
 	log.Fatal(http.ListenAndServe(":8080", router))
