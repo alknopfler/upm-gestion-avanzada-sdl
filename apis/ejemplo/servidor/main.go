@@ -18,6 +18,6 @@ func main() {
 	router.HandleFunc("/api/v1/account/{id}/balance", getAccountBalance).Methods("GET")
 	router.HandleFunc("/api/v1/account/{id}", deleteAccount).Methods("DELETE")
 
-	// start the server
+	// start the server and listen in port 8080
 	log.Fatal(http.ListenAndServe(":8080", router))
 }
