@@ -28,7 +28,7 @@ type ListAccount struct {
 }
 
 /*
-NewAccount is the struct received in json to create an account with the next structure:
+InputAccount is the struct received in json to create an account with the next structure:
 
 	ID is the id of the account
 	Name is the name of the account
@@ -41,6 +41,10 @@ type InputAccount struct {
 	Balance  int    `json:"balance"`
 	Currency string `json:"currency"`
 	Owner    string `json:"owner"`
+}
+
+type Balance struct {
+	Balance int `json:"balance"`
 }
 
 const schemaDB string = `

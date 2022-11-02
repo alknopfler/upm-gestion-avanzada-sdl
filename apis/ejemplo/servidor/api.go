@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"github.com/google/uuid"
+	"github.com/gorilla/mux"
 	_ "github.com/mattn/go-sqlite3"
 	"io/ioutil"
 	"log"
@@ -47,7 +48,40 @@ func getAccounts(w http.ResponseWriter, r *http.Request) {
 	// if the method is not GET, return 405
 	w.WriteHeader(http.StatusMethodNotAllowed)
 	return
+}
 
+func getAccount(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "GET" && mux.Vars(r)["id"] != "" {
+		db := connectDB()
+		// close the database connection
+		defer closeDB(db)
+
+		// get all accounts from the database
+		row := db.QueryRow("SELECT * FROM account WHERE id=?", mux.Vars(r)["id"])
+		result := Account{}
+		var err error
+		if err = row.Scan(&result.ID,
+			&result.Name,
+			&result.Balance,
+			&result.Currency,
+			&result.Owner,
+			&result.CreatedAt,
+			&result.UpdatedAt,
+			&result.DeletedAt); err == sql.ErrNoRows {
+
+			log.Printf("Id %v not found", mux.Vars(r)["id"])
+			w.WriteHeader(http.StatusNotFound)
+			return
+		}
+		// write the response
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		bodyResponse, _ := json.Marshal(result)
+		w.Write(bodyResponse)
+	}
+	// if the method is not GET, return 405
+	w.WriteHeader(http.StatusMethodNotAllowed)
+	return
 }
 
 func createAccount(w http.ResponseWriter, r *http.Request) {
@@ -87,7 +121,92 @@ func createAccount(w http.ResponseWriter, r *http.Request) {
 		// write the response
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusCreated)
+		return
 	}
+}
+
+func createAccountBalance(w http.ResponseWriter, r *http.Request) {
+	if r.Body != nil {
+		db := connectDB()
+		// close the database connection
+		defer closeDB(db)
+
+		b, err := ioutil.ReadAll(r.Body)
+		defer r.Body.Close()
+		if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
+			return
+		}
+		inputBalance := Balance{}
+		err = json.Unmarshal(b, &inputBalance)
+		if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
+			return
+		}
+		_, err = db.Exec("UPDATE account SET balance = ? WHERE id = ?", inputBalance.Balance, mux.Vars(r)["id"])
+		if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusInternalServerError)
+			return
+		}
+		// write the response
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+}
+
+func getAccountBalance(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "GET" && mux.Vars(r)["id"] != "" {
+		db := connectDB()
+		// close the database connection
+		defer closeDB(db)
+
+		// get all accounts from the database
+		row := db.QueryRow("SELECT balance FROM account WHERE id=?", mux.Vars(r)["id"])
+		result := Balance{}
+		var err error
+		if err = row.Scan(&result.Balance); err == sql.ErrNoRows {
+
+			log.Printf("Id %v not found", mux.Vars(r)["id"])
+			w.WriteHeader(http.StatusNotFound)
+			return
+		}
+		// write the response
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		bodyResponse, _ := json.Marshal(result)
+		w.Write(bodyResponse)
+		return
+	}
+	// if the method is not GET, return 405
+	w.WriteHeader(http.StatusMethodNotAllowed)
+	return
+}
+
+func deleteAccount(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "DELETE" && mux.Vars(r)["id"] != "" {
+		db := connectDB()
+		// close the database connection
+		defer closeDB(db)
+
+		// get all accounts from the database
+		_, err := db.Exec("DELETE FROM account WHERE id=?", mux.Vars(r)["id"])
+		if err != nil {
+			log.Printf("Id %v not found", mux.Vars(r)["id"])
+			w.WriteHeader(http.StatusNotFound)
+			return
+		}
+		// write the response
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+	// if the method is not DELETE, return 405
+	w.WriteHeader(http.StatusMethodNotAllowed)
+	return
 }
 
 func connectDB() *sql.DB {
