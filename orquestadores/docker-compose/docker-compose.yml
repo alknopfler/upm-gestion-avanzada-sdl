@@ -3,7 +3,7 @@ version: '3.7'
 
 services:
 
-  servidor:
+  upm-master-api-servidor:
     image: alknopfler/upm-master-api-servidor:latest
     build:
       context: ../../apis/ejemplo/servidor
@@ -14,7 +14,7 @@ services:
     ports:
         - "8080:8080"
 
-  cliente:
+  ump-master-api-cliente:
     image: alknopfler/upm-master-api-cliente:latest
     build:
       context: ../../apis/ejemplo/cliente
