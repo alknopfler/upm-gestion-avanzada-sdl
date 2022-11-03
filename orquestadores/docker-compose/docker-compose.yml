@@ -6,7 +6,7 @@ services:
   cliente:
     image: alknopfler/upm-master-api-cliente:latest
     build:
-      context: apis/ejemplo/cliente
+      context: ../../apis/ejemplo/cliente
     environment:
       URL: http://upm-master-api-servidor:8080
     networks:
@@ -17,7 +17,7 @@ services:
   servidor:
     image: alknopfler/upm-master-api-servidor:latest
     build:
-      context: apis/ejemplo/servidor
+      context: ../../apis/ejemplo/servidor
     volumes:
       - tmp-folder:/tmp/
     networks:
