@@ -14,7 +14,7 @@ services:
     ports:
         - "8080:8080"
 
-  ump-master-api-cliente:
+  upm-master-api-cliente:
     image: alknopfler/upm-master-api-cliente:latest
     build:
       context: ../../apis/ejemplo/cliente
