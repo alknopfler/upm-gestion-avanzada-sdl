@@ -55,15 +55,12 @@ cd upm-gestion-avanzada-sdl/apis/ejemplo/servidor
 
 ### Ejemplo de router - Servidor con API Rest 
 
-[02 - Router API - Download File](apis/ejemplo/servidor/main.go)
-[02 - Router API - View File](https://github.com/alknopfler/upm-gestion-avanzada-sdl/blob/main/apis/ejemplo/servidor/main.go)
+[02 - Router API - Download File](apis/ejemplo/servidor/main.go)   |   [02 - Router API - View File](https://github.com/alknopfler/upm-gestion-avanzada-sdl/blob/main/apis/ejemplo/servidor/main.go)
 
 
-[03 - Modelo de Datos Api Rest - Download File](apis/ejemplo/servidor/data_model.go)
-[03 - Modelo de Datos Api Rest - View File](https://github.com/alknopfler/upm-gestion-avanzada-sdl/blob/main/apis/ejemplo/servidor/data_model.go)
+[03 - Modelo de Datos Api Rest - Download File](apis/ejemplo/servidor/data_model.go)   |   [03 - Modelo de Datos Api Rest - View File](https://github.com/alknopfler/upm-gestion-avanzada-sdl/blob/main/apis/ejemplo/servidor/data_model.go)
 
-[04 - Implementación de handlers - Download File](apis/ejemplo/servidor/api.go)
-[04 - Implementación de handlers - View File](https://github.com/alknopfler/upm-gestion-avanzada-sdl/blob/main/apis/ejemplo/servidor/api.go)
+[04 - Implementación de handlers - Download File](apis/ejemplo/servidor/api.go)   |   [04 - Implementación de handlers - View File](https://github.com/alknopfler/upm-gestion-avanzada-sdl/blob/main/apis/ejemplo/servidor/api.go)
 
 
 ## Serverless, BigData, AI, IoT
