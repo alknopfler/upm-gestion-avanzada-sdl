@@ -51,7 +51,7 @@ cd upm-gestion-avanzada-sdl/apis/ejemplo/servidor
 
 ### Ejemplo de Swagger - Servidor con API Rest 
 
-[01 - Swagger](/apis/ejemplo/servidor/swaggerui/index.html)
+[01 - Swagger](/upm-gestion-avanzada-sdl/apis/ejemplo/servidor/swaggerui/index.html)
 
 ### Ejemplo de router - Servidor con API Rest 
 
