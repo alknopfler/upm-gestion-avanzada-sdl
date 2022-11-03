@@ -1,0 +1,34 @@
+---
+version: '3.7'
+
+services:
+
+  cliente:
+    image: alknopfler/upm-master-api-cliente:latest
+    build:
+      context: apis/ejemplo/cliente
+    environment:
+      URL: http://upm-master-api-servidor:8080
+    networks:
+      - upm-net
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail -H Accept:application/yang-data+json ${URL} || exit 1"]
+
+  servidor:
+    image: alknopfler/upm-master-api-servidor:latest
+    build:
+      context: apis/ejemplo/servidor
+    volumes:
+      - tmp-folder:/tmp/
+    networks:
+      - upm-net
+
+volumes:
+  tmp-folder:
+
+networks:
+  upm-net:
+    ipam:
+      config:
+        - subnet: "10.127.127.0/24"
+          gateway: "10.127.127.1"
