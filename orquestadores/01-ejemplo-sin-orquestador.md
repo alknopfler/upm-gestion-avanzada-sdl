@@ -44,6 +44,7 @@ El cliente no tiene peculiaridades. Lo que hace esta imagen es:
 - Consultar las cuentas creadas
 - Si en algún punto da algún error hace reintentos hasta que el servidor esté disponible, pero después de unos intentos MUERE
 - No es un daemon...Muere cuando lo hace bien, o cuando la política de reintentos termina.
+
 ```bash
 docker run --network upm-net -e URL=http://upm-master-api-servidor:8080 --name upm-master-api-cliente alknopfler/upm-master-api-cliente:latest 
 ```
@@ -53,7 +54,8 @@ docker run --network upm-net -e URL=http://upm-master-api-servidor:8080 --name u
 - ¿Funciona bien verdad? Pues ahora vamos a invertir el orden. Despleguemos primero el cliente, y después el servidor. ¿Qué pasa? ¿Por qué?
 
 - ¿Qué ocurre si durante el proceso de peticiones, el servidor tiene un fallo? Puedes probar a matar el servidor invocando http://<ruta del servidor>:8080/destroy
-```
+
+```bash
  docker run --rm --network upm-net --name mytest -ti alpine/curl:latest curl upm-master-api-servidor:8080/destroy
 ```
 
