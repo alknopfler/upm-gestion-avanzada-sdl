@@ -18,6 +18,8 @@ services:
     image: alknopfler/upm-master-api-cliente:latest
     build:
       context: ../../apis/ejemplo/cliente
+    deploy:
+      replicas: 2
     environment:
       URL: "http://upm-master-api-servidor:8080"
     networks:
