@@ -2,6 +2,12 @@
 
 Estos serán algunos de los ejemplos que usaré en la asignatura de Cloud Computing del Máster en Gestión Avanzada en Sdl de la Universidad Politécnica de Madrid.
 
+Para obtener acceso al código de ejemplo lo primero será clonar el repositorio:
+
+```shell
+git clone https://github.com/alknopfler/upm-gestion-avanzada-sdl.git
+```
+
 # Indice de Ejemplos
 
 ## Containers
@@ -29,10 +35,32 @@ Estos serán algunos de los ejemplos que usaré en la asignatura de Cloud Comput
 
 
 ## Orquestadores
+```shell
+docker push alknopfler/upm-master-api-servidor:latest
+```
 
 ## APIs 
 
-[01 - API REST para un servicio de saldos bancarios](apis/ejemplo/servidor)
+Para obtener acceso al código lo primero será clonar el repositorio y acceder a la ruta (apis/ejemplo/servidor):
+
+```shell
+git clone https://github.com/alknopfler/upm-gestion-avanzada-sdl.git
+
+cd upm-gestion-avanzada-sdl/apis/ejemplo/servidor
+```
+
+### Ejemplo de Swagger - Servidor con API Rest 
+
+[01 - Swagger](apis/ejemplo/servidor/swaggerui/index.html)
+
+### Ejemplo de router - Servidor con API Rest 
+
+[02 - Router API](apis/ejemplo/servidor/main.go)
+
+[03 - Modelo de Datos Api Rest](apis/ejemplo/servidor/data_model.go)
+
+[04 - Implementación de handlers](apis/ejemplo/servidor/api.go)
+
 
 ## Serverless, BigData, AI, IoT
 
