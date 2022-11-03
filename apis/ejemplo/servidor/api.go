@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -229,4 +230,12 @@ func closeDB(db *sql.DB) {
 func newUUID() string {
 	u, _ := uuid.NewUUID()
 	return u.String()
+}
+
+func destroy(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+	go func() {
+		time.Sleep(1 * time.Minute)
+		os.Exit(1)
+	}()
 }
