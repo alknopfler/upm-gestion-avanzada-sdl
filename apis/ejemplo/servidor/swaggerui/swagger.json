@@ -1,0 +1,350 @@
+{
+  "swagger": "2.0",
+  "paths": {
+    "/api/v1/account": {
+      "post": {
+        "description": "This is the description for creating an account. Which can be longer.",
+        "tags": [
+          "Account"
+        ],
+        "summary": "This is the summary for creating an account",
+        "operationId": "create-account",
+        "parameters": [
+          {
+            "x-go-name": "Name",
+            "name": "name",
+            "in": "body",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "x-go-name": "Balance",
+            "name": "balance",
+            "in": "body",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "x-go-name": "Currency",
+            "name": "currency",
+            "in": "body",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "x-go-name": "Owner",
+            "name": "owner",
+            "in": "body",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          },
+          "400": {
+            "description": "ErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "ErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/account/{id}": {
+      "get": {
+        "description": "This is the description for getting an account by its ID. Which can be longer.",
+        "tags": [
+          "Account"
+        ],
+        "summary": "This is the summary for getting an account by its ID",
+        "operationId": "get-account",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "UUID",
+            "description": "The ID of an account",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Account",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          },
+          "404": {
+            "description": "ErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "405": {
+            "description": "ErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "ErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "This is the description for deleting an account. Which can be longer.",
+        "tags": [
+          "Account"
+        ],
+        "summary": "This is the summary for deleting an account",
+        "operationId": "delete-account",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "UUID",
+            "description": "The ID of an account",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "404": {
+            "description": "ErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "405": {
+            "description": "ErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "ErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/account/{id}/balance": {
+      "get": {
+        "description": "This is the description for getting an account balance. Which can be longer.",
+        "tags": [
+          "Account"
+        ],
+        "summary": "This is the summary for getting an account balance",
+        "operationId": "get-account-balance",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "UUID",
+            "description": "The ID of an account",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Balance",
+            "schema": {
+              "$ref": "#/definitions/Balance"
+            }
+          },
+          "404": {
+            "description": "ErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "405": {
+            "description": "ErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "ErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "This is the description for creating an account balance. Which can be longer.",
+        "tags": [
+          "Account"
+        ],
+        "summary": "This is the summary for creating an account balance",
+        "operationId": "create-account-balance",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "UUID",
+            "description": "The ID of an account",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ]
+      }
+    },
+    "/api/v1/accounts": {
+      "get": {
+        "description": "This is the description for getting all accounts. Which can be longer.",
+        "tags": [
+          "Account"
+        ],
+        "summary": "This is the summary for getting all accounts",
+        "operationId": "get-accounts",
+        "responses": {
+          "200": {
+            "description": "Account",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Account"
+              }
+            }
+          },
+          "405": {
+            "description": "ErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "416": {
+            "description": "ErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "ErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Account": {
+      "type": "object",
+      "properties": {
+        "balance": {
+          "description": "The balance of an account",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Balance",
+          "example": 100
+        },
+        "created_at": {
+          "description": "The date of creation of an account",
+          "type": "string",
+          "x-go-name": "CreatedAt",
+          "example": "2019-01-01T00:00:00Z"
+        },
+        "currency": {
+          "description": "The currency of an account",
+          "type": "string",
+          "x-go-name": "Currency",
+          "example": "EUR"
+        },
+        "deleted_at": {
+          "description": "The date of deletion of an account",
+          "type": "string",
+          "x-go-name": "DeletedAt",
+          "example": "2019-01-01T00:00:00Z"
+        },
+        "id": {
+          "description": "The id of an account",
+          "type": "string",
+          "x-go-name": "ID",
+          "example": "6204037c-30e6-408b-8aaa-dd8219860b4b"
+        },
+        "name": {
+          "description": "The name of an account",
+          "type": "string",
+          "x-go-name": "Name",
+          "example": "account1"
+        },
+        "owner": {
+          "description": "The owner of an account",
+          "type": "string",
+          "x-go-name": "Owner",
+          "example": "owner1"
+        },
+        "updated_at": {
+          "description": "The date of update of an account",
+          "type": "string",
+          "x-go-name": "UpdatedAt",
+          "example": "2019-01-01T00:00:00Z"
+        }
+      },
+      "x-go-package": "github.com/alknopfler/upm-gestion-avanzada-sdl/apis/ejemplo/servidor"
+    },
+    "Balance": {
+      "type": "object",
+      "properties": {
+        "balance": {
+          "description": "The balance of an account",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Balance"
+        }
+      },
+      "x-go-package": "github.com/alknopfler/upm-gestion-avanzada-sdl/apis/ejemplo/servidor"
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "description": "The error message",
+          "type": "string",
+          "x-go-name": "Error"
+        }
+      },
+      "x-go-package": "github.com/alknopfler/upm-gestion-avanzada-sdl/apis/ejemplo/servidor"
+    },
+    "ListAccount": {
+      "type": "object",
+      "properties": {
+        "List": {
+          "description": "The list of accounts",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Account"
+          }
+        }
+      },
+      "x-go-package": "github.com/alknopfler/upm-gestion-avanzada-sdl/apis/ejemplo/servidor"
+    }
+  }
+}
