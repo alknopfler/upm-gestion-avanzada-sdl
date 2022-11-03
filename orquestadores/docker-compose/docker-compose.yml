@@ -12,7 +12,7 @@ services:
     networks:
       - upm-net
     healthcheck:
-      test: ["CMD-SHELL", "curl --fail -H Accept:application/yang-data+json ${URL} || exit 1"]
+      test: ["CMD-SHELL", "curl --fail ${URL} || exit 1"]
 
   servidor:
     image: alknopfler/upm-master-api-servidor:latest
