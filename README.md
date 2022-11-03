@@ -35,9 +35,13 @@ git clone https://github.com/alknopfler/upm-gestion-avanzada-sdl.git
 
 
 ## Orquestadores
-```shell
-docker push alknopfler/upm-master-api-servidor:latest
+
+Servidor:
+```bash
+docker pull alknopfler/upm-master-api-servidor:latest
 ```
+
+
 
 ## APIs 
 
