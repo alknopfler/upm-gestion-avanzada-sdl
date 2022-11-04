@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mybank-client
+  labels:
+    app: mybank-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mybank-client
+  template:
+    metadata:
+      labels:
+        app: mybank-client
+    spec:
+      containers:
+        - name: mybank-client
+          image: "alknopfler/upm-master-api-cliente:latest"
+          env:
+            - name: URL
+              value: "mybank.default.svc.cluster.local:8080"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi

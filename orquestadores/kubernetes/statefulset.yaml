@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mybank-api-server
+spec:
+  selector:
+    matchLabels:
+      app: mybank # tiene que coincidir con .spec.template.metadata.labels
+  serviceName: "mybank"
+  replicas: 3 # por defecto es 1
+  template:
+    metadata:
+      labels:
+        app: mybank # tiene que coincidir con .spec.selector.matchLabels
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: mybank
+          image: alknopfler/upm-master-api-servidor:latest
+          ports:
+            - containerPort: 8080
+              name: webapi
+          volumeMounts:
+            - name: dbpath
+              mountPath: /tmp/
+  volumeClaimTemplates:
+    - metadata:
+        name: dbpath
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: "hostpath"
+        resources:
+          requests:
+            storage: 1Gi
