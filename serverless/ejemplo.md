@@ -14,6 +14,14 @@ Para ello es imprescindible haber instalado los pre-requisitos anteriores en nue
 
 ## Instalación de knative en kubernetes
 
+He creado un script que instala knative en kubernetes, para ello ejecutamos:
+
+```shell
+./preparation.sh 
+```
+
+O bien podemos ejecutar los pasos a mano:
+
 ```shell
 kubectl apply -f https://github.com/knative/serving/releases/download/knative-v1.0.0/serving-crds.yaml
 kubectl wait --for=condition=Established --all crd
