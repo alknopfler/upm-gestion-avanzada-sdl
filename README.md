@@ -67,6 +67,6 @@ cd upm-gestion-avanzada-sdl/apis/ejemplo/servidor
 [04 - Implementación de handlers - Download File](apis/ejemplo/servidor/api.go)   |   [04 - Implementación de handlers - View File](https://github.com/alknopfler/upm-gestion-avanzada-sdl/blob/main/apis/ejemplo/servidor/api.go)
 
 
-## Serverless, BigData, AI, IoT
+## Serverless,  IoT, Edge computing
 
-
+[01 - Ejemplo Serverless](serverless/ejemplo.md)
