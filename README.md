@@ -2,6 +2,22 @@
 
 Estos serán algunos de los ejemplos que usaré en la asignatura de Cloud Computing del Máster en Gestión Avanzada en Sdl de la Universidad Politécnica de Madrid.
 
+# Requisitos previos
+
+Como software vamos a necesitar:
+- git
+- Docker
+- Docker-compose
+- Kubernetes
+
+Para evitar problemas de compatibilidad durante el curso, vamos a usar “docker-desktop” que es multi-plataforma (Windows, MacOS y Linux) y así podemos disponer de docker, docker-compose y kubernetes en local de una forma rápida y sencilla.
+
+### Instalación de docker-desktop
+
+- MacOS: [https://docs.docker.com/desktop/install/mac-install/](https://docs.docker.com/desktop/install/mac-install/)
+- Windows: [https://docs.docker.com/desktop/install/windows-install/](https://docs.docker.com/desktop/install/windows-install/)
+- Linux: [https://docs.docker.com/desktop/install/linux-install/](https://docs.docker.com/desktop/install/linux-install/)
+
 Para obtener acceso al código de ejemplo lo primero será clonar el repositorio:
 
 ```shell
