@@ -11,10 +11,10 @@ FROM nginx:alpine
 COPY index.html /usr/share/nginx/html/index.html
 
 
-docker build -t mynginx .
+docker build -t mynginx-alpine .
 
 
-docker run -it -p 8080:80  --rm --name simple-nginx-running-app mynginx
+docker run -it -p 8080:80  --rm --name simple-nginx-running-app mynginx-alpine
 ```
 
 ```shell
@@ -28,9 +28,6 @@ FROM ubuntu
 # Install Nginx
 RUN apt-get -y update && apt-get -y install nginx
 
-# Copy the Nginx config
-COPY default /etc/nginx/sites-available/default
-
 # Expose the port for access
 EXPOSE 80/tcp
 
@@ -38,10 +35,10 @@ EXPOSE 80/tcp
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"].
 
 
-docker build -t mynginx .
+docker build -t mynginx-complex .
 
 
-docker run -d -p 8080:80 --rm --name simple-nginx-running-app mynginx
+docker run -d -p 8080:80 --rm --name complex-nginx-running-app mynginx-complex
 ```
 
 
