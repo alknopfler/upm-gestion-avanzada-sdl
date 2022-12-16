@@ -4,13 +4,15 @@ Estos serán algunos de los ejemplos que usaré en la asignatura de Cloud Comput
 
 # Requisitos previos
 
-Como software vamos a necesitar:
+Como software vamos a necesitar tener instalado:
 - git
-- Docker
-- Docker-compose
-- Kubernetes
+- Docker (CLI)
+- Docker-compose (CLI)
+- Kubernetes (CLI - kubectl)
 
-Para evitar problemas de compatibilidad durante el curso, vamos a usar “docker-desktop” que es multi-plataforma (Windows, MacOS y Linux) y así podemos disponer de docker, docker-compose y kubernetes en local de una forma rápida y sencilla.
+Para evitar problemas de compatibilidad durante el curso, vamos a usar:
+- “docker-desktop” 
+que es multi-plataforma (Windows, MacOS y Linux) y así podemos disponer de docker, docker-compose y kubernetes en local de una forma rápida y sencilla.
 
 ### Instalación de docker-desktop
 
