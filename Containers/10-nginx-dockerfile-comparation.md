@@ -7,21 +7,22 @@ In this example we will compare the Dockerfile of the official nginx image with 
 The official nginx image is based on the alpine image. We can see the Dockerfile of the official nginx image in the [Docker Hub](https://hub.docker.com/_/nginx/).
 
 ```shell
+echo "<h1>Prueba</h1>" > /tmp/index.html
+```
+```Docker
 FROM nginx:alpine
-COPY index.html /usr/share/nginx/html/index.html
-
-
+COPY /tmp/index.html /usr/share/nginx/html/index.html
+```
+```shell
 docker build -t mynginx-alpine .
 
 
 docker run -it -p 8080:80  --rm --name simple-nginx-running-app mynginx-alpine
 ```
 
-```shell
-```
 
 ### 10.2 - Custom nginx image
-```shell
+```Docker
 # Pull the minimal Ubuntu image
 FROM ubuntu
 
@@ -33,7 +34,8 @@ EXPOSE 80/tcp
 
 # Run the Nginx server
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"].
-
+```
+```shell
 
 docker build -t mynginx-complex .
 
