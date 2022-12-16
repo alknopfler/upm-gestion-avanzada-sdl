@@ -4,6 +4,7 @@ En este documento vamos a desplegar un servidor y un cliente con un docker-compo
 
 ## Run docker-compose
 
+Para empezar, debemos acceder al directorio donde hemos clonado el repositorio del máster y hacer lo siguiente:
 ```bash
 cd orquestadores/docker-compose
 docker-compose up --build
