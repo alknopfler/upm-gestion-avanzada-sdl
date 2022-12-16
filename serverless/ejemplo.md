@@ -14,9 +14,10 @@ Para ello es imprescindible haber instalado los pre-requisitos anteriores en nue
 
 ## Instalación de knative en kubernetes
 
-He creado un script que instala knative en kubernetes, para ello ejecutamos:
+He creado un script que instala knative en kubernetes, para ello en el directorio donde hemos clonado el reposotorio del master ejecutamos:
 
 ```shell
+cd serverless
 ./preparation.sh 
 ```
 
